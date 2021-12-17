@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { useMainStore } from "@/store/mian";
 import loginApi from "@/service/api/login/login";
 defineProps<{ msg: string }>();
+const mainStore = useMainStore();
 
 const count1 = ref(3);
 
@@ -11,10 +13,22 @@ const LoginPost = async () => {
   const data = await loginApi.login({ userName: "lin", passWord: "12345" });
   console.log(data);
 };
+const updateName = () => {
+  // $patch 修改 store 中的数据
+  mainStore.$patch({
+    name: "名称被修改了,nameLength也随之改变了",
+  });
+};
+
+console.log(import.meta.env.VITE_APP_WEB_URL);
 </script>
 
 <template>
-  <h1 @click="LoginPost">{{ msg }}</h1>
+  <h1 @click="LoginPost">
+    {{ msg }}<br />
+    用户名:{{ mainStore.name }}<br />长度:{{ mainStore.nameLength }}
+  </h1>
+  <button @click="updateName">修改store中的name</button>
 
   <p>
     Recommended IDE setup:
