@@ -35,9 +35,9 @@ const count = ref(0);
   </p>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 a {
-  color: #42b983;
+  color: $test-color;
 }
 
 label {

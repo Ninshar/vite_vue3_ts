@@ -37,7 +37,7 @@ module.exports = {
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "no-var": "error",
-    "prettier/prettier": "error",
+    "prettier/prettier": "warn",
     // 禁止出现console
     "no-console": "warn",
     // 禁用debugger
@@ -146,6 +146,7 @@ module.exports = {
     "no-extra-boolean-cast": "warn",
     "no-case-declarations": "warn",
     "no-async-promise-executor": "warn",
+    "vue/multi-word-component-names": "warn",
   },
   globals: {
     defineProps: "readonly",
