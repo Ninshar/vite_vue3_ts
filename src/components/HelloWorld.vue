@@ -1,15 +1,20 @@
 <script setup lang="ts">
 import { ref } from "vue";
-
+import loginApi from "@/service/api/login/login";
 defineProps<{ msg: string }>();
 
 const count1 = ref(3);
 
 const count = ref(0);
+
+const LoginPost = async () => {
+  const data = await loginApi.login({ userName: "lin", passWord: "12345" });
+  console.log(data);
+};
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
+  <h1 @click="LoginPost">{{ msg }}</h1>
 
   <p>
     Recommended IDE setup:
