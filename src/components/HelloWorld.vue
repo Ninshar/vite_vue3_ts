@@ -2,6 +2,8 @@
 import { ref } from "vue";
 import { useMainStore } from "@/store/mian";
 import loginApi from "@/service/api/login/login";
+import { NButton } from "naive-ui";
+
 defineProps<{ msg: string }>();
 const mainStore = useMainStore();
 
@@ -28,7 +30,7 @@ console.log(import.meta.env.VITE_APP_WEB_URL);
     {{ msg }}<br />
     用户名:{{ mainStore.name }}<br />长度:{{ mainStore.nameLength }}
   </h1>
-  <button @click="updateName">修改store中的name</button>
+  <n-button @click="updateName">修改store中的name</n-button>
 
   <p>
     Recommended IDE setup:
